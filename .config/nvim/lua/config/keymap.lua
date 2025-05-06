@@ -1,0 +1,1 @@
+-- vim.keymap.set("n", "<C-w><C-d>", "<Nop>")
