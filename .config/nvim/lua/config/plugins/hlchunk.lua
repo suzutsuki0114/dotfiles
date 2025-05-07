@@ -17,7 +17,7 @@ require('hlchunk').setup({
     },
   },
   line_num = {
-    enable = true,
+    enable = false,
     style = "#c678dd",
   },
 })
