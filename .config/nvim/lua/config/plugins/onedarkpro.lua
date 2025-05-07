@@ -1,8 +1,6 @@
 require("onedarkpro").setup({
   highlights = {
-    Comment = { italic = true },
-    Directory = { bold = true },
-    ErrorMsg = { italic = true, bold = true }
+    Comment = { fg = "#5C6370", italic = true },
   },
   styles = {
     comments = "italic",
