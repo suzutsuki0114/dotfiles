@@ -88,12 +88,15 @@ nunmap <C-w>d
 "C-t で新規タブを開く
 "nnoremap <silent> <C-t> :tabnew<CR>
 "C-w でタブを閉じる
-nnoremap <silent> <C-w> :bd<CR>
+"nnoremap <silent> <C-w> :bd<CR>
+nnoremap <silent> <C-w> :tabclose<CR>
 "C-tab と C-l で1つ右のタブを開く
-nnoremap <silent> <C-i> :BufferLineCycleNext<CR>
-nnoremap <silent> <C-l> :BufferLineCycleNext<CR>
+"nnoremap <silent> <C-i> :BufferLineCycleNext<CR>
+"nnoremap <silent> <C-l> :BufferLineCycleNext<CR>
+nnoremap <silent> <C-i> :tabnext<CR>
+nnoremap <silent> <C-l> :tabnext<CR>
 "Ctrl-h で1つ左のタブを開く
-nnoremap <silent> <C-h> :BufferLineCyclePrev<CR>
+nnoremap <silent> <C-h> :tabprev<CR>
 
 
 "ファイル操作系
@@ -133,4 +136,3 @@ autocmd TermEnter term://*toggleterm#*
 autocmd TermEnter term://*toggleterm#*
   \ tnoremap <silent> jj <C-\><C-n>
 ]])
-
