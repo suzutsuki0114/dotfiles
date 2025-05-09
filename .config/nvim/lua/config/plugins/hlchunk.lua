@@ -12,12 +12,12 @@ require('hlchunk').setup({
     },
     blank = {
         enable = true, -- なんか動かない
-    --     chars = {
-    --         "․",
-    --     },
-    --     style = {
-    --         { vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui"), "" },
-    --     },
+        --     chars = {
+        --         "․",
+        --     },
+        --     style = {
+        --         { vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui"), "" },
+        --     },
     },
     line_num = {
         enable = false,
