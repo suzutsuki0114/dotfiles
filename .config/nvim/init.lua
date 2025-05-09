@@ -6,6 +6,8 @@ require('config.lazy')
 
 -- キーマップ設定
 require('config.keymap')
+vim.opt.encoding = 'utf-8'
+vim.scriptencoding = 'utf-8'
 
 -- プラグインの設定とか
 require('config.plugins.onedarkpro')
