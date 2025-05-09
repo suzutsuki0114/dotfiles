@@ -3,8 +3,6 @@ gui:
   language: en
   nerdFontsVersion: "3"
   theme:
-    241:
-      - "#c678dd"
     activeBorderColor:
       - "#98c379"
       - "bold"
