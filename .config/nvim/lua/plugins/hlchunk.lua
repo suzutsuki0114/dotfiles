@@ -1,4 +1,4 @@
 return {
-  "shellRaining/hlchunk.nvim",
-  event = { "BufReadPre", "BufNewFile" },
+    "shellRaining/hlchunk.nvim",
+    event = { "BufReadPre", "BufNewFile" },
 }

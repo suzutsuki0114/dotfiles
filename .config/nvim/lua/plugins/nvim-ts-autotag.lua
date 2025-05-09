@@ -1,4 +1,4 @@
 return {
-  "windwp/nvim-ts-autotag",
-  event = { "BufNewFile", "BufReadPre" },
+    "windwp/nvim-ts-autotag",
+    event = { "BufNewFile", "BufReadPre" },
 }

@@ -132,7 +132,7 @@ nnoremap <silent> / <cmd>Telescope current_buffer_fuzzy_find<cr>
 "toggleterm
 nnoremap <silent> <C-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
 autocmd TermEnter term://*toggleterm#*
-  \ tnoremap <silent> <C-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
+\ tnoremap <silent> <C-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
 autocmd TermEnter term://*toggleterm#*
-  \ tnoremap <silent> jj <C-\><C-n>
+\ tnoremap <silent> jj <C-\><C-n>
 ]])
