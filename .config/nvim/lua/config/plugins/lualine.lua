@@ -22,12 +22,15 @@ require("lualine").setup {
       },
       {
         "diagnostics",
+        sources = { "nvim_lsp" },
+        sections = { "error", "warn", "info", "hint" },
+        symbols = { error = ' ', warn = ' ', info = ' ', hint = '' },
       },
     },
     lualine_c = {
       {
         "filename",
-        path = 4,
+        path = 1,
         symbols = {
           modified = " ",
           readonly = "󰏯 ",
