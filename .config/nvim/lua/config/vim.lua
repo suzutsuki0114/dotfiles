@@ -19,6 +19,7 @@ set showcmd
 " 見た目系
 " 行番号を表示
 set number
+set relativenumber
 " 現在の行を強調表示
 set cursorline
 " 現在の行を強調表示（縦）
@@ -58,6 +59,7 @@ syntax enable
 " Tab系
 " 不可視文字を可視化(タブが「▸-」と表示される)
 "set list listchars=tab:\▸\-
+set list listchars=space:\·
 " Tab文字を半角スペースにする
 set expandtab
 " 行頭以外のTab文字の表示幅（スペースいくつ分）
