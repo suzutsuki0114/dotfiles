@@ -1,6 +1,7 @@
 require('hlchunk').setup({
     chunk = {
         enable = true,
+        use_treesitter = true,
         -- style = "#c678dd",
         style = "#56b6c2",
         -- style = "#61afef",
@@ -9,6 +10,7 @@ require('hlchunk').setup({
     },
     indent = {
         enable = true,
+        use_treesitter = true,
     },
     blank = {
         enable = true, -- なんか動かない
@@ -20,7 +22,8 @@ require('hlchunk').setup({
         --     },
     },
     line_num = {
-        enable = false,
+        enable = true,
+        use_treesitter = true,
         style = "#c678dd",
     },
 })
