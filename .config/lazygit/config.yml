@@ -1,5 +1,5 @@
 gui:
-  tabWidth: 2
+  tabWidth: 4
   language: en
   nerdFontsVersion: "3"
   theme:
