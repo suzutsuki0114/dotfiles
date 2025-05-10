@@ -1,6 +1,11 @@
 return {
-    'akinsho/bufferline.nvim',
-    version = "*",
-    dependencies = 'nvim-tree/nvim-web-devicons',
+    {
+        'akinsho/bufferline.nvim',
+        version = "*",
+        event = "UIEnter",
+    },
+    {
+        'nvim-tree/nvim-web-devicons',
+        lazy = "true"
+    }
 }
-

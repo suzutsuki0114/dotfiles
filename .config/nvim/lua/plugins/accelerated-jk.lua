@@ -1,3 +1,4 @@
 return {
-    'rainbowhxch/accelerated-jk.nvim'
+    'rainbowhxch/accelerated-jk.nvim',
+    event = "VeryLazy",
 }
