@@ -2,7 +2,11 @@ return {
     {
         "williamboman/mason.nvim",
         version = "1.11.0",
-        event = "VimEnter"
+        event = "VimEnter",
+        config = function ()
+            require('config.plugins.mason')
+            vim.cmd('LspStart')
+        end
     },
     {
         "williamboman/mason-lspconfig.nvim",
