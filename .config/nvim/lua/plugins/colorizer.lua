@@ -2,6 +2,14 @@ return {
     'norcalli/nvim-colorizer.lua',
     event = { "BufReadPre", "BufNewFile" },
     config = function ()
-        require('config.plugins.colorizer')
+        -- require 'colorizer'.setup {
+        --     names = false
+        -- }
+        require("colorizer").setup({
+            '*',
+            markdown = {
+                names = false
+            }
+        })
     end
 }

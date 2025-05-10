@@ -2,6 +2,9 @@ return {
     "zbirenbaum/copilot.lua",
     event = "VeryLazy",
     config = function ()
-        require('config.plugins.copilot')
+        require("copilot").setup({
+            suggestion = { enabled = false },
+            panel = { enabled = true },
+        })
     end
 }
