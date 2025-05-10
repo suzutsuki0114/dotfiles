@@ -5,6 +5,6 @@ return {
         -- add any options here
     },
     config = function ()
-        require('config.plugins.Comment')
+        require('Comment').setup()
     end
 }
