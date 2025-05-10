@@ -135,4 +135,6 @@ autocmd TermEnter term://*toggleterm#*
 \ tnoremap <silent> <C-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
 autocmd TermEnter term://*toggleterm#*
 \ tnoremap <silent> jj <C-\><C-n>
+command ToggleTermStart echo
+nnoremap <silent> <C-g> <Cmd>exec "ToggleTermStart" \| exec "lua _lazygit_toggle()" \| command! ToggleTermStart echo<CR>
 ]])

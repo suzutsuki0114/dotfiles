@@ -9,6 +9,8 @@ return {
             "ToggleTermSendVisualLines",
             "ToggleTermSetAll",
             "ToggleTermToggleAll",
+            "TermExec",
+            "ToggleTermStart"
         },
         config = function ()
             require('config.plugins.toggleterm')
