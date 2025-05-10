@@ -13,13 +13,10 @@ require('hlchunk').setup({
         use_treesitter = true,
     },
     blank = {
-        enable = true, -- なんか動かない
-        --     chars = {
-        --         "․",
-        --     },
-        --     style = {
-        --         { vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui"), "" },
-        --     },
+        enable = true,
+        chars = {
+            "․...",
+        },
     },
     line_num = {
         enable = true,
