@@ -91,7 +91,7 @@ nunmap <C-w>d
 "nnoremap <silent> <C-t> :tabnew<CR>
 "C-w でタブを閉じる
 "nnoremap <silent> <C-w> :bd<CR>
-nnoremap <silent> <C-w> :tabclose<CR>
+nnoremap <silent> <C-c> :close<CR>
 "C-tab と C-l で1つ右のタブを開く
 "nnoremap <silent> <C-i> :BufferLineCycleNext<CR>
 "nnoremap <silent> <C-l> :BufferLineCycleNext<CR>
@@ -108,8 +108,11 @@ nnoremap <silent> <C-s> :w<CR>
 nnoremap <C-o> :tabnew<CR>:e 
 "新しいファイル
 nnoremap <C-n> :tabnew<CR>:w 
+
 "Neotree
-nnoremap <silent> <C-e> :if &filetype != 'neo-tree' \| exe "Neotree" \| else \| quit \| endif<CR>
+" nnoremap <silent> <C-e> :if &filetype != 'neo-tree' \| exe "Neotree focus" \| else \| wincmd p \| endif<CR>
+nnoremap <silent> <C-e> :Neotree toggle<CR>
+" autocmd BufEnter * Neotree show
 
 
 "英和辞書の設定
@@ -139,4 +142,15 @@ autocmd TermEnter term://*toggleterm#*
 \ tnoremap <silent> jj <C-\><C-n>
 command ToggleTermStart echo
 nnoremap <silent> <C-g> <Cmd>exec "ToggleTermStart" \| exec "lua _lazygit_toggle()" \| command! ToggleTermStart echo<CR>
+
+" バッファ再読み込み
+function! s:GetBufByte()
+    let byte = line2byte(line('$') + 1)
+    if byte == -1
+        return 0
+    else
+        return byte - 1
+    endif
+endfunction
+autocmd VimEnter * nested if @% != '' && s:GetBufByte() != 0 | e %:p | endif
 ]])
