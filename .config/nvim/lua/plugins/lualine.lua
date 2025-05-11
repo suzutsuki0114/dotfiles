@@ -29,7 +29,7 @@ return {
                             "diagnostics",
                             sources = { "nvim_lsp" },
                             sections = { "error", "warn", "info", "hint" },
-                            symbols = { error = ' ', warn = ' ', info = ' ', hint = '' },
+                            symbols = { error = ' ', warn = ' ', info = ' ', hint = '󰌵' },
                         },
                     },
                     lualine_c = {
