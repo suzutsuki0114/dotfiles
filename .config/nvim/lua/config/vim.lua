@@ -45,6 +45,8 @@ noremap <S-h>   ^
 noremap <S-j>   }
 noremap <S-k>   {
 noremap <S-l>   $
+"カーソルの回り込み
+set whichwrap=h,l,b,s,[,],<,>,~
 " シンタックスハイライトの有効化
 syntax enable
 " カラースキームの変更
