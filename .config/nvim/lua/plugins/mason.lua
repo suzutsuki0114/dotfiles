@@ -2,7 +2,7 @@ return {
     {
         "williamboman/mason.nvim",
         version = "1.11.0",
-        event = "VimEnter",
+        event = "VeryLazy",
         config = function ()
             -- LSPサーバアタッチ時の処理
             vim.api.nvim_create_autocmd("LspAttach", {
@@ -45,10 +45,12 @@ return {
     {
         "williamboman/mason-lspconfig.nvim",
         version = "1.32.0",
-        event = "VimEnter",
+        lazy = true,
+        -- event = "VimEnter",
     },
     {
         "neovim/nvim-lspconfig",
-        event = "VimEnter",
+        -- event = "VimEnter",
+        event = "VeryLazy",
     },
 }
