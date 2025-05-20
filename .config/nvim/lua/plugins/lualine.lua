@@ -8,7 +8,7 @@ return {
             require("lualine").setup {
                 options = {
                     section_separators = { left = '', right = '' },
-                    component_separators = { left = '', right = '' },
+                    component_separators = { left = '', right = '' },
                     refresh = {
                         statusline = 33,
                         tabline = 33,

@@ -109,7 +109,7 @@ nnoremap <silent> <C-s> :w<CR>
 "ファイルを開く
 nnoremap <C-o> :tabnew<CR>:e 
 "新しいファイル
-nnoremap <C-n> :tabnew<CR>:w 
+nnoremap <C-n> :tabnew<CR>
 
 "Neotree
 " nnoremap <silent> <C-e> :if &filetype != 'neo-tree' \| exe "Neotree focus" \| else \| wincmd p \| endif<CR>
@@ -142,17 +142,17 @@ autocmd TermEnter term://*toggleterm#*
 \ tnoremap <silent> <C-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
 autocmd TermEnter term://*toggleterm#*
 \ tnoremap <silent> jj <C-\><C-n>
-command ToggleTermStart echo
+command! ToggleTermStart echo
 nnoremap <silent> <C-g> <Cmd>exec "ToggleTermStart" \| exec "lua _lazygit_toggle()" \| command! ToggleTermStart echo<CR>
 
 " バッファ再読み込み
 function! s:GetBufByte()
-    let byte = line2byte(line('$') + 1)
-    if byte == -1
-        return 0
-    else
-        return byte - 1
-    endif
+  let byte = line2byte(line('$') + 1)
+  if byte == -1
+    return 0
+  else
+    return byte - 1
+  endif
 endfunction
 autocmd VimEnter * nested if @% != '' && s:GetBufByte() != 0 | e %:p | endif
 ]])
