@@ -14,6 +14,8 @@ set autoread
 "set hidden
 " 入力中のコマンドをステータスに表示する
 set showcmd
+" クリップボード共有
+"set clipboard+=unnamedplus
 
 
 " 見た目系
@@ -42,8 +44,8 @@ nnoremap j gj
 nnoremap k gk
 "簡単に大きく移動
 noremap <S-h>   ^
-noremap <S-j>   }
-noremap <S-k>   {
+" noremap <S-j>   }
+" noremap <S-k>   {
 noremap <S-l>   $
 "カーソルの回り込み
 set whichwrap=h,l,b,s,[,],<,>,~
@@ -56,7 +58,17 @@ syntax enable
 "  \ 'colorscheme': 'onedark',
 "  \ }
 "highlight Normal ctermbg=None
-
+" ターミナルでも True Color を使えるようにする。
+set termguicolors
+" 補完の透明度
+set pumblend=10
+" ウィンドウの透明度
+augroup transparent-windows
+  autocmd!
+  " autocmd FileType * set winblend=10
+  autocmd FileType lazy set winblend=10
+  autocmd FileType mason set winblend=10
+augroup END
 
 " Tab系
 " 不可視文字を可視化(タブが「▸-」と表示される)
@@ -87,8 +99,8 @@ set wrapscan
 
 " タブ操作系
 "邪魔なキーマップを削除
-nunmap <C-w><C-d>
-nunmap <C-w>d
+" nunmap <C-w><C-d>
+" nunmap <C-w>d
 "C-t で新規タブを開く
 "nnoremap <silent> <C-t> :tabnew<CR>
 "C-w でタブを閉じる
@@ -101,15 +113,18 @@ nnoremap <silent> <C-i> :tabnext<CR>
 nnoremap <silent> <C-l> :tabnext<CR>
 "Ctrl-h で1つ左のタブを開く
 nnoremap <silent> <C-h> :tabprev<CR>
+"バッファ切り替え
+nnoremap <silent> <C-j> :bprevious<CR>
+nnoremap <silent> <C-k> :bnext<CR>
 
 
 "ファイル操作系
 "上書き保存する
 nnoremap <silent> <C-s> :w<CR>
 "ファイルを開く
-nnoremap <C-o> :tabnew<CR>:e 
+nnoremap <silent> <C-o> :tabnew<CR>:e 
 "新しいファイル
-nnoremap <C-n> :tabnew<CR>
+nnoremap <silent> <C-n> :tabnew<CR>
 
 "Neotree
 " nnoremap <silent> <C-e> :if &filetype != 'neo-tree' \| exe "Neotree focus" \| else \| wincmd p \| endif<CR>
@@ -134,6 +149,9 @@ nnoremap <silent> fg <cmd>Telescope live_grep<cr>
 nnoremap <silent> fb <cmd>Telescope buffers<cr>
 nnoremap <silent> fh <cmd>Telescope help_tags<cr>
 nnoremap <silent> fc <cmd>Telescope commands<cr>
+nnoremap <silent> fo <cmd>Telescope oldfiles<cr>
+nnoremap <silent> fk <cmd>Telescope keymaps<cr>
+nnoremap <silent> fm <cmd>Telescope man_pages<cr>
 nnoremap <silent> / <cmd>Telescope current_buffer_fuzzy_find<cr>
 
 "toggleterm
@@ -147,12 +165,12 @@ nnoremap <silent> <C-g> <Cmd>exec "ToggleTermStart" \| exec "lua _lazygit_toggle
 
 " バッファ再読み込み
 function! s:GetBufByte()
-  let byte = line2byte(line('$') + 1)
-  if byte == -1
-    return 0
-  else
-    return byte - 1
-  endif
+    let byte = line2byte(line('$') + 1)
+    if byte == -1
+        return 0
+    else
+        return byte - 1
+    endif
 endfunction
 autocmd VimEnter * nested if @% != '' && s:GetBufByte() != 0 | e %:p | endif
 ]])
