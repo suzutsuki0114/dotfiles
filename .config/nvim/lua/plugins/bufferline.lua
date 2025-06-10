@@ -17,6 +17,15 @@ return {
                         local icon = level:match("error") and " " or " "
                         return " " .. icon .. count
                     end,
+
+                    offsets = {
+                        {
+                            filetype = "neo-tree",
+                            text = "󰥨 File Explorer",
+                            text_align = "left",
+                            separator = true,
+                        },
+                    },
                 },
             }
         end

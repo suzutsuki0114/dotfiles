@@ -16,6 +16,13 @@ return {
                     },
                 },
                 sections = {
+                    lualine_a = {
+                        {
+                            "mode",
+                            -- icons_enabled = true,
+                            -- icon = "",
+                        },
+                    },
                     lualine_b = {
                         {
                             "branch",
@@ -27,7 +34,7 @@ return {
                         },
                         {
                             "diagnostics",
-                            sources = { "nvim_lsp" },
+                            sources = { "nvim_diagnostic" },
                             sections = { "error", "warn", "info", "hint" },
                             symbols = { error = ' ', warn = ' ', info = ' ', hint = '󰌵' },
                         },

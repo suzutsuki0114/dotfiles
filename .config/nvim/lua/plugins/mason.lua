@@ -1,7 +1,7 @@
 return {
     {
         "williamboman/mason.nvim",
-        version = "1.11.0",
+        -- version = "1.11.0",
         event = "VeryLazy",
         -- event = "VimEnter",
         config = function ()
@@ -25,7 +25,7 @@ return {
                     set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { buffer = true })
                     set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { buffer = true })
                     set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", { buffer = true })
-                    set("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { buffer = true })
+                    -- set("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { buffer = true })
                     set("n", "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", { buffer = true })
                     set("n", "<space>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", { buffer = true })
                     set("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", { buffer = true })
@@ -44,20 +44,20 @@ return {
             -- プラグインの設定
             require("mason").setup()
             require("mason-lspconfig").setup {}
-            local capabilities = require("cmp_nvim_lsp").default_capabilities()
-            require("mason-lspconfig").setup_handlers({
-                function(server_name)
-                    require("lspconfig")[server_name].setup({
-                        capabilities = capabilities,
-                    })
-                end,
-            })
+            -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
+            -- require("mason-lspconfig").setup_handlers({
+            --     function(server_name)
+            --         require("lspconfig")[server_name].setup({
+            --             capabilities = capabilities,
+            --         })
+            --     end,
+            -- })
             vim.cmd('LspStart')
         end
     },
     {
         "williamboman/mason-lspconfig.nvim",
-        version = "1.32.0",
+        -- version = "1.32.0",
         lazy = true,
         -- event = "VimEnter",
     },

@@ -1,6 +1,6 @@
 return  {
     'Bekaboo/dropbar.nvim',
-    version = "12.0.2",
+    -- version = "12.0.2",
     event = { "BufReadPre", "BufNewFile" },
     -- optional, but required for fuzzy finder support
     config = function()
