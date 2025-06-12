@@ -38,7 +38,7 @@ opt.showmode = false
 --  コマンドラインの補完
 opt.wildmode = "list:longest"
 -- カーソルの回り込み
-opt.whichwrap = "h", "l", "b", "s", "[", "]", "<", ">", "~"
+opt.whichwrap = "hlbs[]<>~"
 --  シンタックスハイライトの有効化
 opt.syntax = "on"
 --  ターミナルでも True Color を使えるようにする。
