@@ -8,6 +8,7 @@ augroup transparent-windows
   " autocmd FileType * set winblend=10
   autocmd FileType lazy set winblend=10
   autocmd FileType mason set winblend=10
+  autocmd FileType noice set winblend=10
 augroup END
 
 
@@ -16,11 +17,11 @@ augroup END
 
 
 " toggleterm
+command! ToggleTermStart echo
 autocmd TermEnter term://*toggleterm#*
 \ tnoremap <silent> <C-t> <Cmd>exe v:count1 . --ToggleTerm"<CR>
-autocmd TermEnter term://*toggleterm#*
-\ tnoremap <silent> jj <C-\><C-n>
-command! ToggleTermStart echo
+" autocmd TermEnter term://*toggleterm#*
+" \ tnoremap <silent> jj <C-\><C-n>
 
  " バッファ再読み込み
 function! s:GetBufByte()
