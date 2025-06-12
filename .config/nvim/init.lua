@@ -6,6 +6,3 @@ require('config.keymaps')
 
 -- プラグイン設定
 require('config.lazy')
-
-vim.opt.encoding = 'utf-8'
-vim.scriptencoding = 'utf-8'

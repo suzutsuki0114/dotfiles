@@ -1,7 +1,9 @@
 local opt = vim.opt
 
--- 文字コードをUFT-8に設定
+-- 文字コードをUTF-8に設定
 -- opt.fenc = "utf-8"
+opt.encoding = 'utf-8'
+vim.scriptencoding = 'utf-8'
 --  バックアップファイルを作らない
 -- opt.backup = false
 --  スワップファイルを作らない
@@ -14,6 +16,8 @@ opt.autoread = true
 opt.showcmd = true
 --  クリップボード共有
 -- opt.clipboard:append({unnamedplus = true})
+-- マウス操作を有効化
+opt.mousemoveevent = true
 
 
 --  見た目系
