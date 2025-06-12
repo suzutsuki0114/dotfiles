@@ -8,7 +8,8 @@ return {
             require("lualine").setup {
                 options = {
                     section_separators = { left = '', right = '' },
-                    component_separators = { left = '', right = '' },
+                    -- component_separators = { left = '', right = '' },
+                    component_separators = { left = '', right = '' },
                     refresh = {
                         statusline = 33,
                         tabline = 33,
@@ -49,6 +50,37 @@ return {
                                 new = " ",
                             },
                         },
+                    },
+                    lualine_x = {
+                        {
+                            "encoding",
+                            -- icon = "",
+                        },
+                        {
+                            "fileformat",
+                            symbols = {
+                                unix = '',
+                                dos = '',
+                                mac = '',
+                            },
+                        },
+                        {
+                            "filetype",
+                            colored = true,
+                            icon_only = false,
+                        },
+                    },
+                    lualine_y = {
+                        {
+                            "lsp_status",
+                        }
+                    },
+                    lualine_z = {
+                        {
+                            "datetime",
+                                  -- options: default, us, uk, iso, or your own format string ("%H:%M", etc..)
+                            style = "%m/%d %H:%M:%S",
+                        }
                     },
                 },
             }
