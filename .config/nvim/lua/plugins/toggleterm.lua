@@ -10,8 +10,9 @@ return {
             "ToggleTermSetAll",
             "ToggleTermToggleAll",
             "TermExec",
-            "ToggleTermStart"
         },
+        lazy = true,
+
         config = function ()
             require("toggleterm").setup{}
 
@@ -21,9 +22,17 @@ return {
                 direction = "float",
                 hidden = true
             })
+            local lazydocker = Terminal:new({
+                cmd = "lazydocker",
+                direction = "float",
+                hidden = true
+            })
 
             function _lazygit_toggle()
                 lazygit:toggle()
+            end
+            function _lazydocker_toggle()
+                lazydocker:toggle()
             end
         end
     },
