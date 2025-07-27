@@ -38,6 +38,17 @@ return {
 
                         return vim.fn.expand("%:p:r") .. ".out"
                     end,
+                    -- program = function()
+                    --     print("[DAP] Now building...")
+                    --     vim.system({ "gcc", "-g", "-O0", vim.fn.expand("%:p"), "-o", vim.fn.expand("%:p:r") .. ".out" }, { text = true }, function(obj)
+                    --         if obj.code == 0 then
+                    --             return vim.fn.expand("%:p:r") .. ".out"
+                    --         else
+                    --             print("[DAP] Failed:\n" .. obj.stderr)
+                    --             return nil
+                    --         end
+                    --     end)
+                    -- end,
                     args = function()
                         local input = vim.fn.input('Arguments: ')
                         return vim.split(input, " ", true)
@@ -63,6 +74,17 @@ return {
 
                         return vim.fn.expand("%:p:r") .. ".out"
                     end,
+                    -- program = function()
+                    --     print("[DAP] Now building...")
+                    --     vim.system({ "g++", "-g", "-O0", vim.fn.expand("%:p"), "-o", vim.fn.expand("%:p:r") .. ".out" }, { text = true }, function(obj)
+                    --         if obj.code == 0 then
+                    --             return vim.fn.expand("%:p:r") .. ".out"
+                    --         else
+                    --             print("[DAP] Failed:\n" .. obj.stderr)
+                    --             return nil
+                    --         end
+                    --     end)
+                    -- end,
                     args = function()
                         local input = vim.fn.input('Arguments: ')
                         return vim.split(input, " ", true)

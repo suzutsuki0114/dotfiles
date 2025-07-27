@@ -78,6 +78,9 @@ return {
                                 return session ~= nil
                             end,
                         },
+                        {
+                            "overseer"
+                        },
                     },
                     lualine_y = {
                         {
