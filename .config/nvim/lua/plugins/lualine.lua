@@ -78,6 +78,8 @@ return {
                                 return session ~= nil
                             end,
                         },
+                    },
+                    lualine_y = {
                         {
                             "encoding",
                             -- icon = "",
@@ -95,11 +97,6 @@ return {
                             colored = true,
                             icon_only = false,
                         },
-                    },
-                    lualine_y = {
-                        {
-                            "progress"
-                        }
                     },
                     lualine_z = {
                         {

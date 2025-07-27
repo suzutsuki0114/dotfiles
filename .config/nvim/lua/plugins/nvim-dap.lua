@@ -1,7 +1,6 @@
 return {
     {
         'mfussenegger/nvim-dap',
-        lazy = true,
         config = function()
             local dap = require("dap")
             -- dapへアダプタを登録
@@ -22,7 +21,57 @@ return {
             }
 
             -- ファイルタイプ・アダプタ・設定の紐づけ
+            dap.configurations.c = {
+                {
+                    name = "Launch file",
+                    type = "codelldb",
+                    request = "launch",
+                    -- program = function()
+                    --     return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+                    -- end,
+                    -- program = vim.fn.expand("%:p:r") .. ".out",
+                    program = function()
+                        -- ビルドコマンド実行（非同期でなくてもOKなら os.execute）
+                        local build_cmd = "gcc -g -O0 " .. vim.fn.expand("%:p") .. " -o " .. vim.fn.expand("%:p:r") .. ".out"
+                        print("[DAP] Now building...")
+                        os.execute(build_cmd) -- ここで preLaunchTask 相当の処理をする
+
+                        return vim.fn.expand("%:p:r") .. ".out"
+                    end,
+                    args = function()
+                        local input = vim.fn.input('Arguments: ')
+                        return vim.split(input, " ", true)
+                    end,
+                    cwd = "${workspaceFolder}",
+                    stopOnEntry = false,
+                },
+            }
             dap.configurations.cpp = {
+                {
+                    name = "Launch file",
+                    type = "codelldb",
+                    request = "launch",
+                    -- program = function()
+                    --     return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+                    -- end,
+                    -- program = vim.fn.expand("%:p:r") .. ".out",
+                    program = function()
+                        -- ビルドコマンド実行（非同期でなくてもOKなら os.execute）
+                        local build_cmd = "g++ -g -O0 " .. vim.fn.expand("%:p") .. " -o " .. vim.fn.expand("%:p:r") .. ".out"
+                        print("[DAP] Now building...")
+                        os.execute(build_cmd) -- ここで preLaunchTask 相当の処理をする
+
+                        return vim.fn.expand("%:p:r") .. ".out"
+                    end,
+                    args = function()
+                        local input = vim.fn.input('Arguments: ')
+                        return vim.split(input, " ", true)
+                    end,
+                    cwd = "${workspaceFolder}",
+                    stopOnEntry = false,
+                },
+            }
+            dap.configurations.rust = {
                 {
                     name = "Launch file",
                     type = "codelldb",
@@ -38,8 +87,6 @@ return {
                     stopOnEntry = false,
                 },
             }
-            dap.configurations.c = dap.configurations.cpp
-            dap.configurations.rust = dap.configurations.cpp
             dap.configurations.sh = {
                 {
                     type = 'bashdb',
@@ -98,7 +145,6 @@ return {
     },
     {
         'rcarriga/nvim-dap-ui',
-        lazy = true,
         config = function()
             require("dapui").setup()
         end,
