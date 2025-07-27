@@ -17,6 +17,16 @@ return {
                         tabline = 33,
                         winbar = 33,
                     },
+                    disabled_filetypes = {
+                        winbar = {
+                            "dap-repl",
+                            "dapui_breakpoints",
+                            "dapui_console",
+                            "dapui_scopes",
+                            "dapui_watches",
+                            "dapui_stacks",
+                        },
+                    }
                 },
                 sections = {
                     lualine_a = {
@@ -56,6 +66,19 @@ return {
                     },
                     lualine_x = {
                         {
+                            function()
+                                return require("dap").status()
+                            end,
+                            icon = { "", color = { fg = "#afdf00" } },
+                            cond = function()
+                                if not package.loaded.dap then
+                                    return false
+                                end
+                                local session = require("dap").session()
+                                return session ~= nil
+                            end,
+                        },
+                        {
                             "encoding",
                             -- icon = "",
                         },
@@ -81,7 +104,7 @@ return {
                     lualine_z = {
                         {
                             "datetime",
-                                  -- options: default, us, uk, iso, or your own format string ("%H:%M", etc..)
+                            -- options: default, us, uk, iso, or your own format string ("%H:%M", etc..)
                             style = "%m/%d %H:%M:%S",
                         }
                     },
