@@ -30,10 +30,16 @@ return {
                     program = function()
                         return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
                     end,
+                    args = function()
+                        local input = vim.fn.input('Arguments: ')
+                        return vim.split(input, " ", true)
+                    end,
                     cwd = "${workspaceFolder}",
                     stopOnEntry = false,
                 },
             }
+            dap.configurations.c = dap.configurations.cpp
+            dap.configurations.rust = dap.configurations.cpp
             dap.configurations.sh = {
                 {
                     type = 'bashdb',
