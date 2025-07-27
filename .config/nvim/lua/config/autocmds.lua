@@ -20,7 +20,12 @@ augroup END
 autocmd TermEnter term://*toggleterm#*
 \ tnoremap <silent> <C-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
 " autocmd TermEnter term://*toggleterm#*
-" \ tnoremap <silent> jj <C-\><C-n>
+autocmd TermEnter *
+\ tnoremap <silent> jj <C-\><C-n>
+autocmd TermEnter term://*lazygit*
+\ tunmap jj
+autocmd TermEnter term://*lazydocker*
+\ tunmap jj
 
  " バッファ再読み込み
 function! s:GetBufByte()
