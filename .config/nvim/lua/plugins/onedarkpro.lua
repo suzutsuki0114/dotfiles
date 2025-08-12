@@ -1,5 +1,6 @@
 return {
-    "olimorris/onedarkpro.nvim",
+    -- "olimorris/onedarkpro.nvim",
+    "suzutsuki0114/onedarkpro.nvim",
     lazy = false,
     priority = 1000, -- Ensure it loads first
     config = function ()
