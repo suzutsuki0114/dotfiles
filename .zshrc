@@ -190,6 +190,9 @@ alias ls="ls --icons --color automatic --color-scale --time-style long-iso --git
 alias ll="ls -l"
 alias la="ls -la"
 alias lemonade="lemonade.exe"
+alias cp="cp -r"
+alias rm="rm -r"
+alias mkdir="mkdir -p"
 
 # fzf history
 function fzf-select-history() {
