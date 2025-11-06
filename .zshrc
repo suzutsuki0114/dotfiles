@@ -191,7 +191,7 @@ alias ll="ls -l"
 alias la="ls -la"
 alias lemonade="lemonade.exe"
 alias cp="cp -r"
-alias rm="rm -r"
+alias rm="rm -rf"
 alias mkdir="mkdir -p"
 
 # fzf history
