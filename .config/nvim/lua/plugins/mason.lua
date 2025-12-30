@@ -52,7 +52,7 @@ return {
             --         })
             --     end,
             -- })
-            vim.cmd('LspStart')
+            pcall(function() vim.cmd("lsp restart") end)
         end
     },
     {
