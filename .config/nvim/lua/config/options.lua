@@ -55,6 +55,7 @@ opt.pumblend = 10
 opt.list = true
 -- opt.listchars = "tab:▸-"
 opt.listchars = "space:·"
+
 -- vim.cmd([[set list listchars=space:\·]])
 --  Tab文字を半角スペースにする
 opt.expandtab = true
@@ -79,3 +80,20 @@ opt.hlsearch = false
 
 -- 英和辞書の設定
 opt.keywordprg = "ejdic"
+
+-- クリップボードの同期
+vim.cmd[[
+    let g:clipboard = {
+    \   'name': 'win32yank',
+    \   'copy': {
+    \      '+': 'win32yank.exe -i --crlf',
+    \      '*': 'win32yank.exe -i --crlf',
+    \    },
+    \   'paste': {
+    \      '+': 'win32yank.exe -o --lf',
+    \      '*': 'win32yank.exe -o --lf',
+    \   },
+    \   'cache_enabled': 1,
+    \ }
+    ]]
+
