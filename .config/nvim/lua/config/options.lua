@@ -37,7 +37,8 @@ opt.smartindent = true
 --  括弧入力時の対応する括弧を表示
 opt.showmatch = true
 --  ステータスラインを常に表示
-opt.laststatus = 2
+opt.laststatus = 0
+opt.cmdheight = 0
 opt.showmode = false
 --  コマンドラインの補完
 opt.wildmode = "list:longest"

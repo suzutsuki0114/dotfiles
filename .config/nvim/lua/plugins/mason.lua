@@ -2,6 +2,7 @@ return {
     {
         "williamboman/mason.nvim",
         -- version = "1.11.0",
+        -- event = { "BufReadPre", "BufEnter" },
         event = "VeryLazy",
         -- event = "VimEnter",
         config = function ()
@@ -63,6 +64,7 @@ return {
     },
     {
         "neovim/nvim-lspconfig",
+        -- event = { "BufReadPre", "BufEnter" },
         -- event = "VimEnter",
         event = "VeryLazy",
     },
