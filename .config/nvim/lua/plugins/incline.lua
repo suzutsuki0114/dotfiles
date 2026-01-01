@@ -6,7 +6,70 @@ return {
         local palette = require("onedarkpro.helpers").get_colors()
 
         -- local fg_active = palette.text
-        local fg_active = palette.purple
+        -- local fg_active = palette.purple
+        local mode_color = function()
+            local Mode = {}
+
+            -- stylua: ignore
+            Mode.map = {
+                ['n']      = 'NORMAL',
+                ['no']     = 'O-PENDING',
+                ['nov']    = 'O-PENDING',
+                ['noV']    = 'O-PENDING',
+                ['no\22'] = 'O-PENDING',
+                ['niI']    = 'NORMAL',
+                ['niR']    = 'NORMAL',
+                ['niV']    = 'NORMAL',
+                ['nt']     = 'NORMAL',
+                ['ntT']    = 'NORMAL',
+                ['v']      = 'VISUAL',
+                ['vs']     = 'VISUAL',
+                ['V']      = 'V-LINE',
+                ['Vs']     = 'V-LINE',
+                ['\22']   = 'V-BLOCK',
+                ['\22s']  = 'V-BLOCK',
+                ['s']      = 'SELECT',
+                ['S']      = 'S-LINE',
+                ['\19']   = 'S-BLOCK',
+                ['i']      = 'INSERT',
+                ['ic']     = 'INSERT',
+                ['ix']     = 'INSERT',
+                ['R']      = 'REPLACE',
+                ['Rc']     = 'REPLACE',
+                ['Rx']     = 'REPLACE',
+                ['Rv']     = 'V-REPLACE',
+                ['Rvc']    = 'V-REPLACE',
+                ['Rvx']    = 'V-REPLACE',
+                ['c']      = 'COMMAND',
+                ['cv']     = 'EX',
+                ['ce']     = 'EX',
+                ['r']      = 'REPLACE',
+                ['rm']     = 'MORE',
+                ['r?']     = 'CONFIRM',
+                ['!']      = 'SHELL',
+                ['t']      = 'TERMINAL',
+            }
+
+            local mode_code = vim.api.nvim_get_mode().mode
+            if Mode.map[mode_code] == nil then
+                return palette.green
+            end
+
+            if Mode.map[mode_code] == "NORMAL" then
+                return palette.green
+            elseif Mode.map[mode_code] == "INSERT" then
+                return palette.blue
+            elseif Mode.map[mode_code] == "VISUAL" or Mode.map[mode_code] == "V-LINE" or Mode.map[mode_code] == "V-BLOCK" then
+                return palette.yellow
+            elseif Mode.map[mode_code] == "REPLACE" or Mode.map[mode_code] == "V-REPLACE" then
+                return palette.red
+            elseif Mode.map[mode_code] == "COMMAND" or Mode.map[mode_code] == "EX" then
+                return palette.purple
+            else
+                return palette.green
+            end
+        end
+        local fg_active = mode_color()
         local fg_inactive = palette.comment
         local icons = { error = " ", warn = " ", hint = "󰌵 ", info = " " }
 
@@ -77,15 +140,12 @@ return {
         -- based on https://github.com/b0o/incline.nvim/discussions/32
         --- @param props { buf: number, win: number, focused: boolean }
         local function render(props)
+            fg_active = mode_color()
             local filename, dirname = get_display_filename_and_dirname(props.buf)
 
             local ft_icon, ft_color = devicons.get_icon_color(filename)
 
-            local hasError = #vim.diagnostic.get(props.buf, { severity = vim.diagnostic.severity["ERROR"] }) > 0
             local isReadonly = vim.bo[props.buf].readonly
-
-            local fg_filename_active = hasError and palette.red or (isReadonly and palette.overlay0 or fg_active)
-            local fg_filename = props.focused and fg_filename_active or fg_inactive
 
             return {
                 { get_diagnostic_label(props) },
@@ -95,7 +155,7 @@ return {
                 },
                 {
                     (isReadonly and " 󰏯" or ""),
-                    guifg = fg_filename,
+                    guifg = props.focused and palette.red or fg_inactive,
                 },
                 {
                     dirname and dirname .. "/" or "",
@@ -103,12 +163,12 @@ return {
                 },
                 {
                     filename,
-                    guifg = fg_filename,
+                    guifg = props.focused and fg_active or fg_inactive,
                     gui = props.focused and "bold" or "",
                 },
                 {
                     vim.bo[props.buf].modified and " ●" or "",
-                    guifg = props.focused and palette.peach or fg_inactive,
+                    guifg = props.focused and palette.green or fg_inactive,
                 },
             }
         end
