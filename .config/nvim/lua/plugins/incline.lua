@@ -177,7 +177,7 @@ return {
         return {
             highlight = {
                 groups = {
-                    InclineNormal = { guibg = palette.black, guifg = fg_active },
+                    InclineNormal = { guibg = palette.generated.bg_statusline, guifg = fg_active },
                     InclineNormalNC = { guibg = "none", guifg = fg_inactive },
                 },
             },
