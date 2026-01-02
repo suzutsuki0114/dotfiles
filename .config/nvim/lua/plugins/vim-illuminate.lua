@@ -1,6 +1,7 @@
 return {
     "RRethy/vim-illuminate",
     event = { "CursorMoved", "CursorMovedI" },
+    -- event = { "BufReadPost", "BufAdd", "BufNewFile" },
     init = function()
         local palette = require("utils.colors").palette
         require("utils.highlight").force_set_highlights("vim-illuminate_hl", {
@@ -13,6 +14,7 @@ return {
         require("illuminate").configure({
             delay = 0,
             filetypes_denylist = {
+                'alpha',
                 'neo-tree',
                 'TelescopePrompt',
                 'dapui_console',

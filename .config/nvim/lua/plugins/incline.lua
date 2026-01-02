@@ -1,6 +1,7 @@
 return {
     "b0o/incline.nvim",
-    event = { "VeryLazy" },
+    -- event = { "VeryLazy" },
+    event = { "BufReadPost", "BufAdd", "BufNewFile" },
     opts = function()
         local devicons = require("nvim-web-devicons")
         local palette = require("utils.colors").palette

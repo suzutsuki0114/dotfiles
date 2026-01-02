@@ -4,6 +4,13 @@ return {
         -- version = "1.11.0",
         -- event = { "BufReadPre", "BufEnter" },
         event = { "BufReadPost", "BufAdd", "BufNewFile" },
+        cmd = {
+            "Mason",
+            "MasonInstall",
+            "MasonUninstall",
+            "MasonUninstallAll",
+            "MasonLog",
+        },
         -- event = "VeryLazy",
         -- event = "VimEnter",
         config = function ()
@@ -69,5 +76,16 @@ return {
         -- event = "VimEnter",
         -- event = "VeryLazy",
         event = { "BufReadPost", "BufAdd", "BufNewFile" },
+        config = function ()
+            vim.lsp.config("lua_ls", {
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            globals = { "vim" }
+                        }
+                    }
+                }
+            })
+        end
     },
 }

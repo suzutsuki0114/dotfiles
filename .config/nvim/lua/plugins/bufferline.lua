@@ -2,7 +2,8 @@ return {
     {
         'akinsho/bufferline.nvim',
         version = "*",
-        event = "UIEnter",
+        -- event = "UIEnter",
+        event = { "BufReadPost", "BufAdd", "BufNewFile" },
         config = function ()
             vim.opt.termguicolors = true
             require("bufferline").setup{

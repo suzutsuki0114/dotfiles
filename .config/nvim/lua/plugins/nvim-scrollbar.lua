@@ -1,6 +1,7 @@
 return {
     'petertriho/nvim-scrollbar',
-    event = "UIEnter",
+    -- event = "UIEnter",
+    event = { "BufReadPost", "BufAdd", "BufNewFile" },
     config = function ()
         require("scrollbar").setup({
             show = true,

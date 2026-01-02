@@ -100,12 +100,14 @@ return {
         },
         {
             "hrsh7th/cmp-nvim-lsp-signature-help",
-            event = "VeryLazy",
+            -- event = "VeryLazy",
+            event = { "BufReadPost", "BufAdd", "BufNewFile" },
             -- lazy = true,
         },
         {
             "hrsh7th/cmp-nvim-lsp-document-symbol",
-            event = "VeryLazy",
+            -- event = "VeryLazy",
+            event = { "BufReadPost", "BufAdd", "BufNewFile" },
             -- lazy = true,
         },
         {
