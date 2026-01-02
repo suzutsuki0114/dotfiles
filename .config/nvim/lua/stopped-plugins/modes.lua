@@ -3,9 +3,10 @@ return {
     -- tag = "v0.2.1",
     -- event = { "BufReadPre" },
     -- event = { "BufReadPre", "BufEnter" },
-    event = "VeryLazy",
+    -- event = "VeryLazy",
+    event = { "BufReadPost", "BufAdd", "BufNewFile" },
     config = function()
-        local palette = require("onedarkpro.helpers").get_colors()
+        local palette = require("utils.colors").palette
         require('modes').setup({
             colors = {
                 bg = palette.black, -- Optional bg param, defaults to Normal hl group

@@ -3,7 +3,8 @@ return {
         "williamboman/mason.nvim",
         -- version = "1.11.0",
         -- event = { "BufReadPre", "BufEnter" },
-        event = "VeryLazy",
+        event = { "BufReadPost", "BufAdd", "BufNewFile" },
+        -- event = "VeryLazy",
         -- event = "VimEnter",
         config = function ()
             -- アイコン設定
@@ -66,6 +67,7 @@ return {
         "neovim/nvim-lspconfig",
         -- event = { "BufReadPre", "BufEnter" },
         -- event = "VimEnter",
-        event = "VeryLazy",
+        -- event = "VeryLazy",
+        event = { "BufReadPost", "BufAdd", "BufNewFile" },
     },
 }

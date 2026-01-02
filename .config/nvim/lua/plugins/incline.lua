@@ -3,7 +3,7 @@ return {
     event = { "VeryLazy" },
     opts = function()
         local devicons = require("nvim-web-devicons")
-        local palette = require("onedarkpro.helpers").get_colors()
+        local palette = require("utils.colors").palette
 
         -- local fg_active = palette.text
         -- local fg_active = palette.purple

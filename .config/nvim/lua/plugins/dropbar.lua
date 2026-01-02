@@ -1,7 +1,8 @@
 return  {
     'Bekaboo/dropbar.nvim',
     -- version = "12.0.2",
-    event = { "BufReadPre", "BufNewFile" },
+    -- event = { "BufReadPre", "BufNewFile" },
+    event = { "BufReadPost", "BufAdd", "BufNewFile" },
     -- optional, but required for fuzzy finder support
     config = function()
         local dropbar_api = require('dropbar.api')

@@ -1,7 +1,8 @@
 return {
     "tadaa/vimade",
     -- event = { "BufReadPre" },
-    event = { "VeryLazy" },
+    event = { "BufReadPost", "BufAdd", "BufNewFile" },
+    -- event = { "VeryLazy" },
     opts = {
         recipe = {"default", {animate = false}},
         blocklist = {
