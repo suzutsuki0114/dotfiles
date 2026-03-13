@@ -155,10 +155,6 @@ return {
                     guifg = props.focused and ft_color or fg_inactive,
                 },
                 {
-                    (isReadonly and " 󰏯" or ""),
-                    guifg = props.focused and palette.red or fg_inactive,
-                },
-                {
                     dirname and dirname .. "/" or "",
                     guifg = fg_inactive,
                 },
@@ -166,6 +162,10 @@ return {
                     filename,
                     guifg = props.focused and fg_active or fg_inactive,
                     gui = props.focused and "bold" or "",
+                },
+                {
+                    (isReadonly and " 󰏯" or ""),
+                    guifg = props.focused and palette.red or fg_inactive,
                 },
                 {
                     vim.bo[props.buf].modified and " ●" or "",

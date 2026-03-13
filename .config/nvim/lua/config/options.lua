@@ -18,6 +18,9 @@ opt.showcmd = true
 -- opt.clipboard:append({unnamedplus = true})
 -- マウス操作を有効化
 opt.mousemoveevent = true
+-- 折り畳みを無効化
+opt.foldenable = false
+opt.foldmethod = "manual"
 
 
 --  見た目系
@@ -64,6 +67,10 @@ opt.expandtab = true
 opt.tabstop = 4
 --  行頭でのTab文字の表示幅
 opt.shiftwidth = 4
+-- 入力したタブの幅
+opt.softtabstop = 4
+-- 自動インデント
+opt.autoindent = true
 
 
 --  検索系
@@ -96,5 +103,7 @@ vim.cmd[[
     \   },
     \   'cache_enabled': 1,
     \ }
-    ]]
+   ]]
 
+-- PATH
+-- vim.env.PATH = vim.fn.expand("~/.config/nvim/bin") .. ":" .. vim.env.PATH

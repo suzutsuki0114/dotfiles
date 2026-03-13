@@ -61,6 +61,7 @@ return {
             --         })
             --     end,
             -- })
+
             pcall(function() vim.cmd("lsp restart") end)
         end
     },
@@ -77,6 +78,47 @@ return {
         -- event = "VeryLazy",
         event = { "BufReadPost", "BufAdd", "BufNewFile" },
         config = function ()
+            local lspconfig = require('lspconfig')
+            local configs = require('lspconfig.configs')
+
+            -- 1. MoZukuの定義を追加
+            if not configs.mozuku then
+                configs.mozuku = {
+                    default_config = {
+                        cmd = { 'mozuku-lsp' }, -- 実行ファイル名
+                        root_dir = lspconfig.util.root_pattern('.git', '.'), -- プロジェクトルートの判定
+                        filetypes = {
+                            -- MoZukuを有効にしたいファイルタイプを列挙
+                            'markdown',
+                            'text',
+                            'gitcommit',
+                            -- 'c',
+                            -- 'cpp',
+                            -- 'lua',
+                            -- 'python',
+                            -- 'javascript',
+                            -- 'typescript',
+                            -- 'tsx',
+                            -- 'rust',
+                            'html',
+                            'tex'
+                            -- 必要に応じて追加してください
+                        },
+                        single_file_support = true,
+                    },
+                }
+            end
+
+            -- 2. MoZukuをセットアップ
+            lspconfig.mozuku.setup({
+                cmd_env = {
+                    MOZUKU_DEBUG = "1",
+                },
+                capabilities = require('cmp_nvim_lsp').default_capabilities(
+                    vim.lsp.protocol.make_client_capabilities()
+                ),
+            })
+
             vim.lsp.config("lua_ls", {
                 settings = {
                     Lua = {
