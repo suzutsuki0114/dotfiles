@@ -2,6 +2,7 @@ return {
     "RRethy/vim-illuminate",
     event = { "CursorMoved", "CursorMovedI" },
     -- event = { "BufReadPost", "BufAdd", "BufNewFile" },
+
     init = function()
         local palette = require("utils.colors").palette
         require("utils.highlight").force_set_highlights("vim-illuminate_hl", {
@@ -10,7 +11,15 @@ return {
             IlluminatedWordWrite = { ctermbg = 238, bg = palette.generated.fg_gutter },
         })
     end,
+
     config = function()
+        -- local palette = require("utils.colors").palette
+        -- require("utils.highlight").force_set_highlights("vim-illuminate_hl", {
+        --     IlluminatedWordText = { ctermbg = 238, bg = palette.generated.fg_gutter },
+        --     IlluminatedWordRead = { ctermbg = 238, bg = palette.generated.fg_gutter },
+        --     IlluminatedWordWrite = { ctermbg = 238, bg = palette.generated.fg_gutter },
+        -- })
+
         require("illuminate").configure({
             delay = 0,
             filetypes_denylist = {

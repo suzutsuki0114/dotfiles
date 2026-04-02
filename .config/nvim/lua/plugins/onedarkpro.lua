@@ -1,6 +1,6 @@
 return {
-    -- "olimorris/onedarkpro.nvim",
-    "suzutsuki0114/onedarkpro.nvim",
+    "olimorris/onedarkpro.nvim",
+    -- "suzutsuki0114/onedarkpro.nvim",
     event = "UIEnter",
     -- lazy = false,
     priority = 1000, -- Ensure it loads first
