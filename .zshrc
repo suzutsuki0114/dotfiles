@@ -81,12 +81,14 @@ plugins=(
 # env
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
-export DISPLAY=$(hostname).mshome.net:0.0
+# export DISPLAY=$(hostname).mshome.net:0.0
 export GOOGLE_CLOUD_PROJECT="development-464314"
-export PATH=".:$HOME/.local/bin:$PATH"
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
+# export PATH=".:$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export LANG=ja_JP.UTF-8
+export LC_ALL=ja_JP.UTF-8
 export EDITOR='nvim'
+export TERM="xterm-256color"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -135,7 +137,6 @@ zstyle :compinstall filename '/home/suzutsuki0114/.zshrc'
 # End of lines added by compinstall
 
 # 環境変数
-export LANG=ja_JP.UTF-8
 export LSCOLORS=gxfxcxdxbxegedabagacad
 
 # ヒストリの設定
@@ -164,7 +165,7 @@ zstyle ':completion:*' list-colors ''
 
 # プラグインを有効化
 # source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # コマンドのスペルを訂正
 setopt correct
@@ -186,13 +187,20 @@ RPROMPT='${vcs_info_msg_0_}'
 # alias
 alias hexedit="hexedit --color"
 alias v="nvim"
-alias ls="ls --icons --color automatic --color-scale --time-style long-iso --git -Ghm"
+alias vimdiff="nvim -d"
+alias ls="eza -F --icons --color=auto --time-style=long-iso --git -hm"
 alias ll="ls -l"
 alias la="ls -la"
-alias lemonade="lemonade.exe"
+# alias lemonade="lemonade.exe"
 alias cp="cp -r"
 alias rm="rm -rf"
 alias mkdir="mkdir -p"
+alias tree="eza -T"
+alias :q="exit"
+
+function mkcd() {
+    mkdir -p "$*" && cd "$1"
+}
 
 # fzf history
 function fzf-select-history() {
